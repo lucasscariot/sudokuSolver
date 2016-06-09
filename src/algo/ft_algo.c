@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sdk.h                                              :+:      :+:    :+:   */
+/*   ft_algo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 08:42:55 by lucas             #+#    #+#             */
-/*   Updated: 2016/06/09 19:15:27 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/06/09 19:15:24 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SDK_H
-# define SDK_H
-# include "libft.h"
-# include <stdio.h>
-# include <math.h>
-# include <sys/stat.h>
+#include "sdk.h"
 
-typedef struct	s_gen
+int		ft_modifiable(t_gen *gen)
 {
-	int			***grid;
-	int			x;
-	int			y;
-	int			value;
-	int			fd;
-}				t_gen;
+	if (gen->grid[1][gen->x][gen->y] == 0)
+		return (1);
+	return (0);
+}
 
+void	ft_change_value(t_gen *gen)
+{
+	
+}
 
-int 			***ft_malloc_grid(void);
-void			ft_save_grid(t_gen *gen, int ac, char **av);
-void			ft_show(t_gen *gen);
-void			ft_error(t_gen *gen);
-void			ft_algo(t_gen *gen);
-#endif
+void	ft_algo(t_gen *gen)
+{
+	(void)gen;
+	while (1)
+	{
+		if (gen->y >= 9 && gen->x >= 9)
+			break ;
+		gen->x = 0;
+		while (gen->x < 9)
+		{
+			if (ft_modifiable(gen))
+				ft_change_value(gen);
+			gen->x++;
+		}
+		gen->y++;
+	}
+}

@@ -6,7 +6,7 @@
 #    By: lscariot <lscariot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/22 09:44:59 by lscariot          #+#    #+#              #
-#    Updated: 2016/06/09 17:22:05 by lscariot         ###   ########.fr        #
+#    Updated: 2016/06/09 18:58:16 by lscariot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ LFLAGS	=  -O3 -g -Wall -Wextra -Werror $(I_DIR) $(LIBS_DIR)
 
 CFLAGS	=  -O3 -g -Wall -Wextra -Werror $(I_DIR) $(LIBS_DIR)
 
-FILES	=	main.c
+FILES	=	main.c				parsing/ft_save_grid.c		\
+			errors/ft_error.c	algo/ft_algo.c				\
 
 LIBS_F	= ./libft/libft.a
 
